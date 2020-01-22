@@ -1,0 +1,141 @@
+.jumbotron {
+  height: 90vh;
+  padding: 1.5rem 0px;
+  @include mq($width: 1200px) {
+    padding-top: 4rem;
+    padding-left: 9vw;
+  }
+  h1 {
+    margin: 0;
+    @include function-font(
+      $fnt-size: 25px,
+      $fnt-weight: 600,
+      $fnt-family: $fnt-one,
+      $ltr-spc: 2px,
+      $ln-hgh: 2rem,
+      $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+    );
+  }
+  span {
+    @include function-font(
+      $fnt-size: 30px,
+      $fnt-weight: 600,
+      $fnt-family: $fnt-one,
+      $ltr-spc: 5px,
+      $ln-hgh: 3rem,
+      $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+    );
+  }
+}
+.jmb-title {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1.3rem;
+  h1 {
+    line-height: 3rem;
+    font-size: 14px;
+    color: rgba($color: $clr-two, $alpha: 1);
+    @include mq($width: 1200px) {
+      font-size: 16px;
+    }
+  }
+  span {
+    color: $clr-fnt-three;
+    display: block;
+    @include mq($width: 1200px) {
+      font-size: 40px;
+    }
+  }
+}
+.jmb-subtitle {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    font-size: 18px;
+    line-height: normal;
+    color: $clr-fnt-one;
+    margin-bottom: 4px;
+    @include mq($width: 1200px) {
+      font-size: 20px;
+    }
+  }
+  span {
+    text-align: center;
+    color: $clr-two;
+    font-size: 12px;
+    font-family: $fnt-two !important;
+    line-height: normal;
+    position: relative;
+    @include mq($width: 1200px) {
+      font-size: 14px;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 10%;
+      display: block;
+      top: 50%;
+      background: $clr-two;
+    }
+    &::after {
+      right: 10%;
+    }
+    &::before {
+      left: 10%;
+    }
+  }
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.jmb-desc {
+  color: $clr-fnt-one;
+  margin-top: 3rem;
+  @include mq($width: 1200px) {
+    width: 50%;
+  }
+  p {
+    @include mq($width: 1200px) {
+      font-size: 16px;
+    }
+    @include function-font(
+      $fnt-size: 14px,
+      $fnt-weight: 400,
+      $fnt-family: $fnt-two,
+      $ltr-spc: 1px,
+      $ln-hgh: 1.7rem,
+      $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+    );
+  }
+}
+.jmb-footer {
+  display: flex;
+  margin-top: 1rem;
+}
+.btn-portofolio {
+  @include function-font(
+    $fnt-size: 17px,
+    $fnt-weight: 600,
+    $fnt-family: $fnt-one,
+    $ltr-spc: 5px,
+    $ln-hgh: 3rem,
+    $fnt-clr: rgba($color: $clr-fnt-two, $alpha: 1)
+  );
+  border: 2px solid rgba($color: $clr-fnt-two, $alpha: 1);
+  outline: none;
+  background: transparent;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  &:hover {
+    color: $clr-fnt-three;
+    background: rgba($color: $clr-two-dark, $alpha: 0.7);
+    border: 2px solid $clr-fnt-three;
+  }
+}

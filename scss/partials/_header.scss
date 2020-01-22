@@ -1,0 +1,45 @@
+.title-global {
+  @include function-font(
+    $fnt-size: 30px,
+    $fnt-weight: 900,
+    $fnt-family: $fnt-one,
+    $ltr-spc: 3px,
+    $ln-hgh: normal,
+    $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+  );
+  position: relative;
+  text-align: center;
+  &::before,
+  &::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    width: 10%;
+    display: block;
+    top: 50%;
+    background: $clr-two;
+  }
+  &::after {
+    right: 1rem;
+  }
+  &::before {
+    left: 1rem;
+  }
+}
+.scroll {
+  opacity: 0;
+  transition: opacity ease-in-out 700ms;
+}
+.scroll.active {
+  opacity: 1;
+  cursor: pointer;
+  z-index: 1001;
+  position: fixed;
+  bottom: 2rem;
+  right: 1rem;
+  padding: 0.5rem;
+  border: 1px solid rgba($color: $clr-two, $alpha: 1);
+  color: $clr-fnt-three;
+  background: rgba($color: $clr-two-dark, $alpha: 1);
+}
+@import "nav";

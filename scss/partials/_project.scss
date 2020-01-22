@@ -1,0 +1,209 @@
+.project {
+  margin-top: 5rem;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  h4 {
+    margin: 0;
+    position: relative;
+    @include function-font(
+      $fnt-size: 23px,
+      $fnt-weight: 600,
+      $fnt-family: $fnt-one,
+      $ltr-spc: 2px,
+      $ln-hgh: 2rem,
+      $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+    );
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      width: 30%;
+      display: block;
+      background: $clr-two;
+    }
+  }
+}
+.list-project {
+  display: flex;
+  flex-direction: column;
+  @include mq($width: 1200px) {
+    flex-direction: row;
+  }
+}
+.box-project {
+  display: flex;
+  flex-direction: column;
+  margin: 0.7rem 0;
+  border: 3px solid rgba($color: $clr-one, $alpha: 0.3);
+  @include mq($width: 1200px) {
+    flex: 1 0 33.33%;
+    max-width: 32%;
+    margin: 0.8rem 0;
+    justify-content: flex-start;
+  }
+}
+.box-header {
+  position: relative;
+  overflow: hidden;
+  &:hover .image-cover {
+    transform: translateX(100%);
+  }
+}
+.box-header .image-cover {
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba($color: $clr-one, $alpha: 0.4);
+  transition: transform ease 250ms;
+}
+.box-body {
+  color: $clr-fnt-one;
+  padding: 1.5rem;
+  background: rgba($color: $clr-five, $alpha: 0.9);
+  p {
+    @include function-font(
+      $fnt-size: 13px,
+      $fnt-weight: 400,
+      $fnt-family: $fnt-two,
+      $ltr-spc: normal,
+      $ln-hgh: normal,
+      $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+    );
+  }
+}
+.box-body .product-credit {
+  display: flex;
+  flex-direction: row;
+  span {
+    @include function-font(
+      $fnt-size: 13px,
+      $fnt-weight: 400,
+      $fnt-family: $fnt-two,
+      $ltr-spc: normal,
+      $ln-hgh: normal,
+      $fnt-clr: rgba($color: $clr-fnt-two, $alpha: 1)
+    );
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: transform ease 200ms;
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 90%;
+      width: 2px;
+      margin: auto 0;
+      display: block;
+      background: $clr-fnt-two;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.project-title {
+  color: $clr-fnt-one;
+  text-align: center;
+  position: relative;
+  letter-spacing: 3px;
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 10%;
+    display: block;
+    background: $clr-two;
+  }
+  &::before {
+    left: 1rem;
+  }
+  &::after {
+    right: 1rem;
+  }
+}
+.tab-project {
+  list-style: none;
+  display: flex;
+  @include mq($width: 1200px) {
+    flex-direction: column;
+    flex: 1 0 20%;
+  }
+  li {
+    display: flex;
+    transition: background ease-in 200ms;
+    &:hover {
+      background: rgba($color: $clr-five, $alpha: 0.7);
+    }
+  }
+  a.active {
+    background: rgba($color: $clr-five, $alpha: 0.7);
+  }
+  a {
+    @include mq($width: 1200px) {
+      width: 100%;
+      padding: 1rem 1.7rem;
+      z-index: 1;
+    }
+    @include function-font(
+      $fnt-size: 14px,
+      $fnt-weight: 400,
+      $fnt-family: $fnt-two,
+      $ltr-spc: 1px,
+      $ln-hgh: normal,
+      $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+    );
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+  }
+}
+.content-tab {
+  display: none;
+  background: rgba($color: $clr-five, $alpha: 0.7);
+  padding: 1rem;
+  transition: all ease-in 300ms;
+}
+.content-tab.show {
+  display: block;
+  @include mq($width: 1200px) {
+    display: flex;
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+    z-index: 2;
+  }
+}
+.project-image {
+  object-fit: cover;
+}
+.group-btn {
+  margin-top: 1rem;
+}
+.group-btn .btn-detail {
+  @include function-font(
+    $fnt-size: 13px,
+    $fnt-weight: 400,
+    $fnt-family: $fnt-two,
+    $ltr-spc: 1px,
+    $ln-hgh: normal,
+    $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+  );
+  padding: 0.5rem 1.6rem;
+  border: 1px solid rgba($color: $clr-fnt-one, $alpha: 1);
+  background: transparent;
+  outline: none;
+  color: rgba($color: $clr-fnt-three, $alpha: 1);
+  cursor: pointer;
+  &:focus {
+    box-shadow: 0px 0px 5px 1px rgba($color: $clr-fnt-one, $alpha: 1);
+  }
+}

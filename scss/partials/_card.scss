@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  @include mq($width: 1200px) {
+    flex-direction: row;
+    margin-top: 6rem;
+  }
+}
+.card-header {
+  position: relative;
+  margin-bottom: 1rem;
+  @include mq($width: 1200px) {
+    flex: 1 0 50%;
+  }
+}
+.card-body {
+  padding: 1rem;
+  border-radius: 1px;
+}

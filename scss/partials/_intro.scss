@@ -1,0 +1,56 @@
+.intro-profil {
+  margin-top: 5rem;
+  color: $clr-fnt-one;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  p {
+    text-indent: 1rem;
+    text-align: justify;
+    @include mq($width: 1200px) {
+      font-size: 15px;
+    }
+    @include function-font(
+      $fnt-size: 13px,
+      $fnt-weight: 400,
+      $fnt-family: $fnt-two,
+      $ltr-spc: normal,
+      $ln-hgh: 1.6rem,
+      $fnt-clr: rgba($color: $clr-fnt-one, $alpha: 1)
+    );
+  }
+}
+
+@import "card";
+.bg-profil {
+  position: relative;
+  width: 60%;
+  margin: 0 auto;
+  @include mq($width: 1200px) {
+    width: 45%;
+  }
+}
+.cover-img {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border: 2px solid rgba($color: $clr-two, $alpha: 0.6);
+  background: rgba($color: $clr-two, $alpha: 0.4);
+  transition: all ease-in-out 300ms;
+}
+.image-profil {
+  position: relative;
+  z-index: 2;
+}
+.bg-profil {
+  &:hover .cover-img {
+    z-index: 1;
+    background: transparent;
+    border: 0.5rem solid rgba($color: $clr-two, $alpha: 0.6);
+    transform: translate(0.7rem, 0.6rem);
+  }
+}
