@@ -3,8 +3,8 @@ const btn_close = document.getElementById("btn_close");
 const nav = document.querySelector(".nav-cover");
 const link_tab = document.querySelectorAll(".link-tab");
 const scroll_element = document.getElementById("scroll");
-const about = document.querySelector(".intro-profil");
-
+const nav_link = document.querySelectorAll(".nav-link");
+const about = document.querySelector("#about");
 btn_navbar.addEventListener("click", function(events) {
   nav.classList.add("nav-open");
 });
@@ -35,7 +35,14 @@ scroll_element.addEventListener("click", function(event) {
     top: 0,
     behavior: "smooth"
   });
-  // scrollTo("100px");
+});
+
+nav_link.forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    let id = this.getAttribute("href");
+    console.log(id);
+  });
 });
 
 const offsets = 400;

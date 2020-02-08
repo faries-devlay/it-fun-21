@@ -6,6 +6,12 @@
 .container {
   max-width: 26rem;
   margin: 0 auto;
+  @include mq($width: 320px) {
+    max-width: 20rem;
+  }
+  @include mq($width: 350px) {
+    max-width: 21.7rem;
+  }
   @include mq($width: 1200px) {
     max-width: 1160px;
   }

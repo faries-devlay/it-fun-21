@@ -20,18 +20,6 @@ ul {
   padding: 0;
   margin: 0; }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px; } }
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px; } }
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px; } }
-
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -417,6 +405,12 @@ template {
 .container {
   max-width: 26rem;
   margin: 0 auto; }
+  @media (min-width: 320px) {
+    .container {
+      max-width: 20rem; } }
+  @media (min-width: 350px) {
+    .container {
+      max-width: 21.7rem; } }
   @media (min-width: 1200px) {
     .container {
       max-width: 1160px; } }
