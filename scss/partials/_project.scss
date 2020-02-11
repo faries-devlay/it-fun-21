@@ -28,6 +28,7 @@
   }
 }
 .list-project {
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   @include mq($width: 1200px) {

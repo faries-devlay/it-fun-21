@@ -400,17 +400,18 @@ template {
 .header {
   background: transparent;
   font-family: "merriweather";
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .container {
   max-width: 26rem;
   margin: 0 auto; }
   @media (min-width: 320px) {
     .container {
-      max-width: 20rem; } }
+      max-width: 20em; } }
   @media (min-width: 350px) {
     .container {
-      max-width: 21.7rem; } }
+      max-width: 25.7rem; } }
   @media (min-width: 1200px) {
     .container {
       max-width: 1160px; } }
@@ -660,7 +661,8 @@ template {
 
 .intro-profil {
   margin-top: 5rem;
-  color: #c2b8da; }
+  color: #c2b8da;
+  min-height: 35rem; }
   .intro-profil img {
     width: 100%;
     height: auto; }
@@ -750,6 +752,7 @@ template {
       background: #2bfdef; }
 
 .list-project {
+  margin-top: 4rem;
   display: flex;
   flex-direction: column; }
   @media (min-width: 1200px) {
@@ -933,6 +936,7 @@ template {
       width: 60%; } }
 
 .next-title {
+  margin-top: 3.5rem;
   position: relative; }
   .next-title h4 {
     padding-left: 0.5rem;
