@@ -1,5 +1,8 @@
 // Object Timeline
 const tl = gsap.timeline({ duration: 0.4, ease: "power4.out" });
+const spinnerTl = gsap.timeline({
+  ease: "power4.out"
+});
 const introTimeline = gsap.timeline({
   duration: 0.6,
   ease: "power4.out"
@@ -26,9 +29,19 @@ const contactBefore = CSSRulePlugin.getRule(
   ".contact-us .title-global::before"
 );
 
+const modals = document.querySelectorAll(".btn-detail");
+const close_modal = document.querySelector(".popup__close");
+const transition = gsap.timeline();
+const popup = document.querySelector(".popup");
+const popupInner = document.querySelector(".popup-inner");
+const spinner = document.querySelector(".spinner-box");
+
 // Scroll Magic
 const controller = new ScrollMagic.Controller();
 
+spinnerTl
+  .fromTo(spinner, 1, { y: "-100vh", opacity: 0 }, { y: "0vh", opacity: 1 })
+  .from(".spinner-box .box", { y: -20, opacity: 0 });
 tl.from(".logo", { y: 50 })
   .from(".navbar-nav li", {
     y: 50,
@@ -71,7 +84,6 @@ introTimeline
     },
     { opacity: 1, y: 0 }
   )
-  // .fromTo([introBefore, introAfter], { opacity: 0 }, { opacity: 1 })
   .fromTo(
     ".intro-profil .card-header",
     0.7,
@@ -89,7 +101,6 @@ introTimeline
 portfolio
   .fromTo(
     ".project .title-global",
-    0.7,
     {
       opacity: 0,
       y: -30
@@ -102,10 +113,10 @@ portfolio
     { opacity: 0, x: -30 },
     { opacity: 1, x: 0 }
   )
-  .from(".list-project .tab-project li", 0.7, {
+  .from(".list-project .tab-project li", 0.5, {
     opacity: 0,
     x: -30,
-    stagger: { amount: 0.5 }
+    stagger: 0.5
   })
   .from(
     ".list-project .content-tab",
@@ -116,19 +127,23 @@ portfolio
     },
     "-=0.6"
   )
-  .from(".box-header", 0.5, {
-    opacity: 0,
-    y: -10
-  })
-  .from(".box-body", 0.5, {
-    opacity: 0,
-    y: -10,
-    stagger: 0.5
-  })
   .fromTo(
-    ".intro-profil .card-body",
-    0.7,
-    { opacity: 0, y: -20 },
+    ".box-header",
+    0.5,
+    {
+      opacity: 0,
+      y: -10
+    },
+    { opacity: 1, y: 0 }
+  )
+  .fromTo(
+    ".box-body",
+    0.5,
+    {
+      opacity: 0,
+      y: -10,
+      stagger: 0.5
+    },
     { opacity: 1, y: 0 }
   );
 
@@ -152,21 +167,6 @@ contactMe
       y: 30
     },
     "-=0.6"
-  )
-  .from(".box-header", 0.5, {
-    opacity: 0,
-    y: -10
-  })
-  .from(".box-body", 0.5, {
-    opacity: 0,
-    y: -10,
-    stagger: 0.5
-  })
-  .fromTo(
-    ".intro-profil .card-body",
-    0.7,
-    { opacity: 0, y: -20 },
-    { opacity: 1, y: 0 }
   );
 footer
   .from(".footer", 0.7, { opacity: 0, x: "-100%" })
@@ -179,7 +179,6 @@ new ScrollMagic.Scene({
 })
   .setTween(introTimeline)
   .reverse(false)
-  .addIndicators({ name: "intro profil" })
   .addTo(controller);
 
 new ScrollMagic.Scene({
@@ -188,7 +187,6 @@ new ScrollMagic.Scene({
 })
   .setTween(portfolio)
   .reverse(false)
-  .addIndicators({ name: "project" })
   .addTo(controller);
 
 new ScrollMagic.Scene({
@@ -197,7 +195,6 @@ new ScrollMagic.Scene({
 })
   .setTween(contactMe)
   .reverse(false)
-  .addIndicators({ name: "contact" })
   .addTo(controller);
 
 new ScrollMagic.Scene({
@@ -206,5 +203,24 @@ new ScrollMagic.Scene({
 })
   .setTween(footer)
   .reverse(false)
-  .addIndicators({ name: "footer" })
   .addTo(controller);
+
+modals.forEach(modal => {
+  modal.addEventListener("click", function() {
+    popup.style.opacity = "1";
+    popup.style.visibility = "visible";
+    popupInner.style.bottom = "0";
+    popupInner.style.right = "0";
+  });
+});
+
+close_modal.addEventListener("click", function(e) {
+  e.preventDefault();
+  popupInner.style.bottom = "-100vw";
+  popupInner.style.right = "-100vh";
+  popup.style.visibility = "hidden";
+});
+
+window.onload = function() {
+  spinner.style.display = "none";
+};
